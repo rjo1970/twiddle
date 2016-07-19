@@ -1,0 +1,41 @@
+#include "../twiddle.c"
+
+#test masks_work_out_to_8_bits
+  ck_assert_int_eq(MASK[8], 128);
+
+#test invert_byte_test
+  ck_assert_int_eq(invert_byte(0x00), 0xff);
+
+#test move_left_test
+  ck_assert_int_eq(move_left(0x01), 0x02);
+
+#test move_right_test
+  ck_assert_int_eq(move_right(0x80), 0x40);
+
+#test high_nibble_test
+  ck_assert_int_eq(high_nibble(0x81), 0x80);
+
+#test join_nibbles_test
+  ck_assert_int_eq(join_nibbles(0x80, 0x01), 0x81);
+
+#test nibble_swap_test
+  ck_assert_int_eq(nibble_swap(0x0f), 0xf0);
+
+#test high_bit_on_test
+  ck_assert_int_eq(high_bit_on(0x01), 0x81);
+
+#test high_bit_off_test
+  ck_assert_int_eq(high_bit_off(0xff), 0x7f);
+
+#test flip_byte_test
+  ck_assert_int_eq(flip_byte(0x80), 0x01);
+  ck_assert_int_eq(flip_byte(0x40), 0x02);
+
+#test xor_demo_test
+  fail_unless(xor_demo(0xff));
+
+#test xor_swap_test
+  xor_result *result = xor_swap(0xff, 0x00);
+  ck_assert_int_eq(result->a, 0x00);
+  ck_assert_int_eq(result->b, 0xff);
+  free(result);
