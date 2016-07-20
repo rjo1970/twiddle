@@ -137,6 +137,13 @@ BYTE flip_byte(BYTE c) {
 
 /*
  Introducing exclusive-or ^ facts
+  
+  bit a | bit b | (a ^ b)
+    1   |   1   | 0
+    1   |   0   | 1
+    0   |   1   | 1
+    0   |   0   | 0
+
  demonstrate the following in tests:
  For a BYTE c of any value,
    c ^ 0x00 == c;
