@@ -1,7 +1,7 @@
 #include "../twiddle.c"
 
 #test masks_work_out_to_8_bits
-  ck_assert_int_eq(MASK[8], 128);
+  ck_assert_int_eq(MASK[7], 128);
 
 #test invert_byte_test
   ck_assert_int_eq(invert_byte(0x00), 0xff);
@@ -16,7 +16,7 @@
   ck_assert_int_eq(high_nibble(0x81), 0x80);
 
 #test join_nibbles_test
-  ck_assert_int_eq(join_nibbles(0x80, 0x01), 0x81);
+  ck_assert_int_eq(join_nibbles(0x01, 0x80), 0x81);
 
 #test nibble_swap_test
   ck_assert_int_eq(nibble_swap(0x0f), 0xf0);
