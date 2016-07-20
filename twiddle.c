@@ -137,7 +137,7 @@ BYTE flip_byte(BYTE c) {
 
 /*
  Introducing exclusive-or ^ facts
-  
+
   bit a | bit b | (a ^ b)
     1   |   1   | 0
     1   |   0   | 1
@@ -147,7 +147,7 @@ BYTE flip_byte(BYTE c) {
  demonstrate the following in tests:
  For a BYTE c of any value,
    c ^ 0x00 == c;
-   c ^ 0xff == ~c;
+   c ^ 0xff == ~c; // BUT be careful of bits beyond 8!
    c ^ c == 0;
    c ^ (any byte value) ^ (any byte value) == c
 */
